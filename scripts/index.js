@@ -10,16 +10,9 @@ let testQuestion = createQuestion(
     "This is a test answer"
 );
 
-console.log(testQuestion);
-
-let cardSide = document.getElementById("card-side");
-let questionText = document.getElementById("question-text");
-
-let card = document.getElementById("card");
-
-cardSide.textContent = "Question";
-questionText.textContent = testQuestion.question;
+let card = document.querySelector(".card");
+let cardInner = document.querySelector(".card-inner");
 
 card.addEventListener("click", () => {
-    questionText.textContent = testQuestion.answer
+    cardInner.classList.toggle("flipped");
 });
