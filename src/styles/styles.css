@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #3777ff;
+    --background-primary: #0e0d23;
+    --background-secondary: #1e1d40;
+    --text-color: #f7f9f9;
+    --secondary-color: #4cd3ef;
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +15,16 @@
 h1 {
     font-size: 3rem;
     padding: 2rem 0;
+    background-image: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     text-align: center;
     height: 100dvh;
+    background: var(--background-primary);
 }
 
 main {
@@ -26,8 +39,8 @@ button {
     font-family: Arial, sans-serif;
     border: none;
     border-radius: 5px;
-    color: whitesmoke;
-    background-color: orangered;
+    color: var(--text-color);
+    background-color: var(--primary-color);
     font-size: 1.2rem;
     padding: 1rem 2rem;
     margin: 2rem;
@@ -35,13 +48,13 @@ button {
 
 button:hover {
     transition: 0.3s ease;
-    background-color: #ff6d46;
+    background-color: #47a2f6;
     cursor: pointer;
 }
 
 button:active {
     transition: 0.3s ease;
-    background-color: #dc4221;
+    background-color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -49,8 +62,8 @@ div {
     text-align: center;
     border: none;
     border-radius: 5px;
-    background-color: white;
-    box-shadow: 0 0 8px 5px rgba(255, 71, 26, 0.2);
+    background-color: var(--text-color);
+    box-shadow: 0 0 16px 10px rgba(55, 119, 255, 0.3);
     width: 500px;
     height: 300px;
     display: flex;
