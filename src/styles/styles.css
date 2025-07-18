@@ -10,6 +10,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 h1 {
@@ -21,7 +22,6 @@ h1 {
 }
 
 body {
-    font-family: "Roboto", Arial, sans-serif;
     text-align: center;
     height: 100dvh;
     background: var(--background-primary);
@@ -134,4 +134,40 @@ button:active {
 
 #card-sorting-buttons button {
     width: 45%;
+}
+
+.card-creation-container {
+    background-color: var(--background-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 800px;
+    height: 500px;
+    border-radius: 5px;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+.card-creation-container.isShown {
+    visibility: visible;
+}
+
+.card-creation-container h2, label {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.card-creation-container input {
+    width: 50%;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.card-creation-container p {
+    color: #7f8993;
 }

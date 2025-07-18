@@ -14,6 +14,18 @@
         <h1>TechReady</h1>
     </header>
     <main>
+        <div class="card-creation-container">
+            <h2>Create New Card</h2>
+            <p>Card #<span id="card-id"></span></p>
+            <label for="card-question">Question:</label>
+            <input type="text" id="card-question" placeholder="Enter question..." required>
+            <label for="card-answer">Answer:</label>
+            <input type="text" id="card-answer" placeholder="Enter answer..." required>
+            <div>
+                <button id="cancel-card-button">Cancel Card</button>
+                <button id="create-card-button">Create Card</button>
+            </div>
+        </div>
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
@@ -39,6 +51,7 @@
             <button>✅ Mastered Card</button>
             <button>↪️ Review Card</button>
         </div>
+        <button id="add-card-button">Add card</button>
     </main>
     <script src="../scripts/index.js"></script>
 </body>
