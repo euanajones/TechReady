@@ -2,6 +2,8 @@ let questions = [];
 let masteredQuestions = [];
 let currentQuestion = 0;
 
+localStorage.clear()
+
 const questionContent = document.getElementById('question-content');
 const answerContent = document.getElementById('answer-content');
 
@@ -25,6 +27,16 @@ const cancelCardButton = document.getElementById("cancel-card-button");
 const masterButton = document.getElementById("master-button");
 const masteryPercentText = document.getElementById("mastery-percent");
 const masteryBar = document.getElementById("mastery-progress");
+
+if (!localStorage.getItem("globalID")) {
+    localStorage.setItem("globalID", "1");
+}
+
+function getNextID() {
+    const currentID = Number(localStorage.getItem("globalID"));
+    localStorage.setItem("globalID", String(currentID + 1));
+    return currentID;
+}
 
 function updateQuestion() {
     questionContent.textContent = questions[currentQuestion].question;
@@ -51,15 +63,17 @@ function masterQuestion() {
     updateQuestion();
 }
 
-function createQuestion(id, question, answer) {
+function createQuestion(question, answer) {
+    let newID = getNextID();
+
     let questionObj = {
-        id,
+        id: newID,
         question,
         answer,
     };
 
     questions.push(questionObj);
-    localStorage.setItem(id, JSON.stringify(questionObj));
+    localStorage.setItem(String(newID), JSON.stringify(questionObj));
 
     return questionObj;
 }
@@ -86,6 +100,7 @@ prevButton.addEventListener("click", () => {
 })
 
 addCardButton.addEventListener("click", () => {
+    cardIDText.innerText = localStorage.getItem("globalID");
     cardCreateCont.classList.toggle("isShown");
 })
 
@@ -106,23 +121,18 @@ masterButton.addEventListener("click", () => {
 })
 
 createQuestion(
-    1,
     "What does Big O notation represent?",
     "Algorithm efficiency or complexity.");
 createQuestion(
-    2,
     "What makes HTTPS different from HTTP?",
     "HTTPS uses encryption for secure data transfer.");
 createQuestion(
-    3,
     "What is a REST API used for?",
     "To let systems communicate over HTTP.")
 createQuestion(
-    4,
     "Why is Git important in development?",
     "It tracks code changes and supports collaboration.");
 createQuestion(
-    5,
     "What happens in a coding whiteboard interview?",
     "You solve coding problems by writing and explaining code by hand.");
 

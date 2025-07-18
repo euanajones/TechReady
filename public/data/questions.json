@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What does Big O notation represent?",
+    "answer": "Algorithm efficiency or complexity."
+  },
+  {
+    "question": "What makes HTTPS different from HTTP?",
+    "answer": "HTTPS uses encryption for secure data transfer."
+  },
+  {
+    "question": "What is REST API used for?",
+    "answer": "To let systems communicate over HTTP."
+  },
+  {
+    "question": "Why is Git important in development?",
+    "answer": "It tracks code changes and supports collaboration."
+  },
+  {
+    "question": "What happens in a coding whiteboard interview?",
+    "answer": "You solve coding problems by writing and explaining code by hand."
+  }
+]
