@@ -2,6 +2,8 @@ let questions = [];
 let masteredQuestions = [];
 let currentQuestion = 0;
 
+localStorage.clear();
+
 const questionContent = document.getElementById('question-content');
 const answerContent = document.getElementById('answer-content');
 
@@ -36,6 +38,10 @@ if (questions.length === 0) {
 }
 
 function fetchSavedCards() {
+    if (localStorage.length === 0) {
+        return;
+    }
+
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
 
@@ -43,7 +49,7 @@ function fetchSavedCards() {
 
         if (/^Mastered: \d+$/.test(key)) {
             masteredQuestions.push(card);
-        } else {
+        } else if (/\d+$/.test(key)){
             questions.push(card);
         }
     }
