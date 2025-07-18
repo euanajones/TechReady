@@ -42,10 +42,24 @@ prevButton.addEventListener("click", () => {
     updateQuestion();
 })
 
-questions.push(createQuestion("Question 1", "Answer 1"));
-questions.push(createQuestion("Question 2", "Answer 2"));
-questions.push(createQuestion("Question 3", "Answer 3"));
-questions.push(createQuestion("Question 4", "Answer 4"));
-questions.push(createQuestion("Question 5", "Answer 5"));
+questions.push(createQuestion(
+    "What does Big O notation represent?",
+    "Algorithm efficiency or complexity.")
+);
+questions.push(createQuestion(
+    "What makes HTTPS different from HTTP?",
+    "HTTPS uses encryption for secure data transfer.")
+);
+questions.push(createQuestion(
+    "What is a REST API used for?",
+    "To let systems communicate over HTTP."));
+questions.push(createQuestion(
+    "Why is Git important in development?",
+    "It tracks code changes and supports collaboration.")
+);
+questions.push(createQuestion(
+    "What happens in a coding whiteboard interview?",
+    "You solve coding problems by writing and explaining code by hand.")
+);
 
 updateQuestion();
