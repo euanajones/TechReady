@@ -2,8 +2,6 @@ let questions = [];
 let masteredQuestions = [];
 let currentQuestion = 0;
 
-localStorage.clear()
-
 const questionContent = document.getElementById('question-content');
 const answerContent = document.getElementById('answer-content');
 
@@ -30,6 +28,11 @@ const masteryBar = document.getElementById("mastery-progress");
 
 if (!localStorage.getItem("globalID")) {
     localStorage.setItem("globalID", "1");
+}
+
+if (questions.length === 0) {
+    questionContent.innerText = "You don't seem to have any cards! You can create a new card using the Add Card button below...";
+    answerContent.innerText = "You flipped the card! This is where your answers to your cards can be found.";
 }
 
 function getNextID() {
@@ -105,7 +108,7 @@ addCardButton.addEventListener("click", () => {
 })
 
 createCardButton.addEventListener("click", () => {
-    createQuestion(currentQuestion+1, newQuestionContent.value, newAnswerContent.value);
+    createQuestion(newQuestionContent.value, newAnswerContent.value);
     updateQuestion();
     cardCreateCont.classList.toggle("isShown");
 })
@@ -120,20 +123,20 @@ masterButton.addEventListener("click", () => {
     masterQuestion();
 })
 
-createQuestion(
-    "What does Big O notation represent?",
-    "Algorithm efficiency or complexity.");
-createQuestion(
-    "What makes HTTPS different from HTTP?",
-    "HTTPS uses encryption for secure data transfer.");
-createQuestion(
-    "What is a REST API used for?",
-    "To let systems communicate over HTTP.")
-createQuestion(
-    "Why is Git important in development?",
-    "It tracks code changes and supports collaboration.");
-createQuestion(
-    "What happens in a coding whiteboard interview?",
-    "You solve coding problems by writing and explaining code by hand.");
+// createQuestion(
+//     "What does Big O notation represent?",
+//     "Algorithm efficiency or complexity.");
+// createQuestion(
+//     "What makes HTTPS different from HTTP?",
+//     "HTTPS uses encryption for secure data transfer.");
+// createQuestion(
+//     "What is a REST API used for?",
+//     "To let systems communicate over HTTP.")
+// createQuestion(
+//     "Why is Git important in development?",
+//     "It tracks code changes and supports collaboration.");
+// createQuestion(
+//     "What happens in a coding whiteboard interview?",
+//     "You solve coding problems by writing and explaining code by hand.");
 
 updateQuestion();
