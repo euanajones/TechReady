@@ -1,4 +1,5 @@
 let questions = [];
+let masteredQuestions = [];
 let currentQuestion = 0;
 
 const questionContent = document.getElementById('question-content');
@@ -21,12 +22,25 @@ const newAnswerContent = document.getElementById("card-answer");
 const createCardButton = document.getElementById("create-card-button");
 const cancelCardButton = document.getElementById("cancel-card-button");
 
+const masterButton = document.getElementById("master-button");
+
 function updateQuestion() {
     questionContent.textContent = questions[currentQuestion].question;
     answerContent.textContent = questions[currentQuestion].answer;
 
     currentQuestionNumber.textContent = String((currentQuestion+1));
     totalQuestionNumber.textContent = String((questions.length));
+}
+
+function masterQuestion() {
+    const question = questions[currentQuestion];
+
+    masteredQuestions.push(question);
+    questions.splice(currentQuestion, 1);
+
+    currentQuestion--;
+
+    updateQuestion();
 }
 
 function createQuestion(id, question, answer) {
@@ -70,6 +84,10 @@ cancelCardButton.addEventListener("click", () => {
     newQuestionContent.value = "Enter question...";
     newAnswerContent.value = "Enter answer...";
     cardCreateCont.classList.toggle("isShown");
+})
+
+masterButton.addEventListener("click", () => {
+    masterQuestion();
 })
 
 createQuestion(
