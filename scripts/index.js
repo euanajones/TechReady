@@ -35,6 +35,20 @@ if (questions.length === 0) {
     answerContent.innerText = "You flipped the card! This is where your answers to your cards can be found.";
 }
 
+function fetchSavedCards() {
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+
+        let card = JSON.parse(localStorage.getItem(key));
+
+        if (/^Mastered: \d+$/.test(key)) {
+            masteredQuestions.push(card);
+        } else {
+            questions.push(card);
+        }
+    }
+}
+
 function getNextID() {
     const currentID = Number(localStorage.getItem("globalID"));
     localStorage.setItem("globalID", String(currentID + 1));
@@ -60,6 +74,8 @@ function masterQuestion() {
 
     masteredQuestions.push(question);
     questions.splice(currentQuestion, 1);
+    localStorage.removeItem(String(question.id));
+    localStorage.setItem(String("Mastered: " + question.id), JSON.stringify(question));
 
     currentQuestion--;
 
@@ -139,4 +155,5 @@ masterButton.addEventListener("click", () => {
 //     "What happens in a coding whiteboard interview?",
 //     "You solve coding problems by writing and explaining code by hand.");
 
+fetchSavedCards();
 updateQuestion();
