@@ -25,6 +25,9 @@ body {
     text-align: center;
     height: 100dvh;
     background: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 main {
@@ -35,26 +38,15 @@ main {
 }
 
 button {
-    transition: 0.3s ease;
-    font-family: Arial, sans-serif;
     border: none;
-    border-radius: 5px;
-    color: var(--text-color);
-    background-color: var(--primary-color);
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    margin: 2rem;
+    background: none;
 }
 
 button:hover {
-    transition: 0.3s ease;
-    background-color: #47a2f6;
     cursor: pointer;
 }
 
 button:active {
-    transition: 0.3s ease;
-    background-color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -63,8 +55,8 @@ button:active {
     perspective: 1000px;
     text-align: center;
     border-radius: 5px;
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 500px;
 }
 
 .card-inner {
@@ -98,4 +90,17 @@ button:active {
 
 .card-back {
     transform: rotateX(180deg);
+}
+
+#card-navigation {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+#question-tracker {
+    color: var(--text-color);
 }
