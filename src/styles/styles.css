@@ -171,3 +171,20 @@ button:active {
 .card-creation-container p {
     color: #7f8993;
 }
+
+#mastery-progress {
+    width: 800px;
+    height: 20px;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(
+            to right,
+            var(--secondary-color) 0%,
+            var(--text-color) 0%
+    );
+}
+
+#mastery-info {
+    color: var(--text-color);
+    font-weight: bold;
+}

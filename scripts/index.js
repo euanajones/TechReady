@@ -23,6 +23,8 @@ const createCardButton = document.getElementById("create-card-button");
 const cancelCardButton = document.getElementById("cancel-card-button");
 
 const masterButton = document.getElementById("master-button");
+const masteryPercentText = document.getElementById("mastery-percent");
+const masteryBar = document.getElementById("mastery-progress");
 
 function updateQuestion() {
     questionContent.textContent = questions[currentQuestion].question;
@@ -30,6 +32,12 @@ function updateQuestion() {
 
     currentQuestionNumber.textContent = String((currentQuestion+1));
     totalQuestionNumber.textContent = String((questions.length));
+
+    const masteryPercent = calcMastery();
+
+    masteryPercentText.textContent = String(masteryPercent);
+    masteryBar.style.background = `linear-gradient(to right, var(--secondary-color) ${masteryPercent}%, 
+    var(--text-color) ${masteryPercent}%)`;
 }
 
 function masterQuestion() {
@@ -54,6 +62,13 @@ function createQuestion(id, question, answer) {
     localStorage.setItem(id, JSON.stringify(questionObj));
 
     return questionObj;
+}
+
+function calcMastery() {
+    let totalQuestions = questions.length + masteredQuestions.length;
+    let numOfMasterQuestions = masteredQuestions.length;
+
+    return Math.round((numOfMasterQuestions / totalQuestions) * 100);
 }
 
 card.addEventListener("click", () => {
